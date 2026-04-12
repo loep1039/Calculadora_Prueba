@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -16,6 +17,11 @@
 </head>
 <body class="flex items-center justify-center min-h-screen bg-gray-100 p-4">
     <div class="calculator bg-blue-200 p-5 rounded-xl shadow-lg grid gap-2 grid-cols-3 max-w-xs w-full">
+        
+        <div class="col-span-3 text-[10px] text-blue-600/60 font-bold uppercase tracking-wider text-right pr-1 -mb-1">
+            Desarrollador: FA
+        </div>
+
         <div class="display col-span-3 bg-blue-50 border border-blue-300 p-3 text-3xl text-right rounded-lg min-h-[70px] flex flex-col justify-between">
             <div id="letterDisplay" class="text-gray-800 font-semibold break-all"></div>
             <div class="number-label text-3xl text-gray-600 mt-1" id="resultDisplay"></div>
@@ -35,7 +41,6 @@
     </div>
 
     <script>
-        // 2. REGISTRO DEL SERVICE WORKER (Para que sea instalable)
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
                 navigator.serviceWorker.register('sw.js')
@@ -44,7 +49,6 @@
             });
         }
 
-        // Lógica de la calculadora
         const resultDisplay = document.getElementById('resultDisplay');
         const letterDisplay = document.getElementById('letterDisplay');
         let currentInput = "";
@@ -59,12 +63,10 @@
                     currentInput += letterMap[value];
                 }
                 
-                // Actualizar letras
                 letterDisplay.textContent = currentInput.split('').map(n => {
                     return Object.keys(letterMap).find(key => letterMap[key] === n) || '';
                 }).join('');
 
-                // Actualizar números
                 resultDisplay.textContent = currentInput;
             });
         });
