@@ -16,9 +16,11 @@
     </style>
 </head>
 <body class="flex items-center justify-center min-h-screen bg-gray-100 p-4">
-    <div class="flex flex-col items-center">
-        <!-- Texto muy pequeño del desarrollador -->
-        <div class="text-[10px] text-gray-400 mb-1 text-center">Desarrollador: FA</div>
+    <div class="relative">
+        <!-- Texto muy pequeño del desarrollador - Posicionado arriba sin afectar dimensiones -->
+        <div class="absolute -top-5 left-0 right-0 text-center">
+            <div class="text-[8px] text-gray-400">Desarrollador: FA</div>
+        </div>
         
         <div class="calculator bg-blue-200 p-5 rounded-xl shadow-lg grid gap-2 grid-cols-3 max-w-xs w-full">
             <div class="display col-span-3 bg-blue-50 border border-blue-300 p-3 text-3xl text-right rounded-lg min-h-[70px] flex flex-col justify-between">
